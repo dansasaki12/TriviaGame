@@ -4,7 +4,7 @@ $(document).ready(function() {
 		time : 30,
 		reset: function() {
 			this.time = 30;
-			$(".timer").html("<h3>" + this.time + " seconds remaining</h3>");
+			$(".timer").html("<h2>" + this.time + " seconds remaining</h2>");
 		},
 		start: function() {
 			counter = setInterval(countdownTimer.count, 1000);	
@@ -16,7 +16,7 @@ $(document).ready(function() {
 				countdownTimer.time--;
 				console.log(countdownTimer.time);				
 			if (countdownTimer.time >= 0) {
-				$(".timer").html("<h3>" + countdownTimer.time + " seconds remaining</h3>");
+				$(".timer").html("<h2>" + countdownTimer.time + " seconds remaining</h2>");
 			}
 			else {
 				index++;
@@ -71,7 +71,7 @@ var questionArray = [q1, q2, q3, q4, q5];
 function loadQuestion(questionSelection) {
 	console.log(questionSelection);
 	countdownTimer.reset();
-  $(".question").html("<h3>" + questionArray[questionSelection].question + "</h3>");
+  $(".question").html("<h2>" + questionArray[questionSelection].question + "</h2>");
   $("#true").text(questionArray[questionSelection].possibleAnswers[0]).show();
   $("#false").text(questionArray[questionSelection].possibleAnswers[1]).show();
 //  getAnswer();  

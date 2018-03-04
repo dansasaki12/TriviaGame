@@ -26,5 +26,6 @@ button:hover {
 
 
 h1, h2, h3, .question {
-	text-align: center;
+    text-align: center;
+    background-color: blueviolet;
 }
