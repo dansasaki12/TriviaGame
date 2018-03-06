@@ -1,9 +1,9 @@
 $(document).ready(function() {
 	var index = 0;
 	var countdownTimer = {
-		time : 30,
+		time : 15,
 		reset: function() {
-			this.time = 30;
+			this.time = 15;
 			$(".timer").html("<h2>" + this.time + " seconds remaining</h2>");
 		},
 		start: function() {
@@ -13,9 +13,8 @@ $(document).ready(function() {
 			clearInterval(counter);
 		},
 		count: function() {
-				countdownTimer.time--;
-				console.log(countdownTimer.time);				
-			if (countdownTimer.time >= 0) {
+                countdownTimer.time--;
+                if (countdownTimer.time >= 0) {
 				$(".timer").html("<h2>" + countdownTimer.time + " seconds remaining</h2>");
 			}
 			else {
@@ -31,46 +30,79 @@ $(document).ready(function() {
 				}
 			}
 		}
-	};
+    };
+
+// counexs
 var correct = 0;
 var wrong = 0;
+
+// questions
 var q1 = {
-	question : "The vehicle manufacturer Volvo was founded in Sweden?",
+	question : "The plural version of LEGO is LEGO?",
 	possibleAnswers: ["True",
 				 "False"],
 	answer : [true, false],
 };
 
 var q2 = {
-	question: "General Motors was founded in Detroit, MI?",
+	question: "The word LEGO is from the first two letters of the Danish words Leg and Godt, which means play well?",
 	possibleAnswers: ["True",
 				 "False"],
-	answer : [false, true],
+	answer : [true, false],
 };
 var q3 = {
-	question: "The first generation of the Chevrolet Corvette was introduced in 1952?",
+	question: "There are 186 LEGO bricks for every person on earth.",
 	possibleAnswers: ["True",
 				 "False"],
 	answer : [false, true],
 };
 var q4 = {
-	question: "In most modern vehicles, the carburator has been replace with Fuel Injection System?",
+	question: "LEGO is the largest tire manufacture in the world.",
 	possibleAnswers: ["True",
 				 "False"],
 	answer : [true, false],
 };
 var q5 = {
-	question: "Jaguar was purchased by by Tata motors in 2006??",
+	question: "One LEGO can bear up to 6,000 Newtons of force, or over 1,349 pounds",
 	possibleAnswers: ["True",
 				 "False"],
 	answer : [false, true],
 };
+var q6 = {
+	question: "LEGO is one of the few commercial toys that are not manufactured in China.",
+	possibleAnswers: ["True",
+				 "False"],
+	answer : [true, false],
+};
+var q7 = {
+	question: "LEGO created the first minifigure in 1968",
+	possibleAnswers: ["True",
+				 "False"],
+	answer : [false, true],
+};
+var q8 = {
+	question: "LEGO bricks were originally called “Automatic Binding Bricks.",
+	possibleAnswers: ["True",
+				 "False"],
+	answer : [true, false],
+};
+var q9 = {
+	question: "Most LEGO heads have noses so that the facial graphics remain as clean as possible.",
+	possibleAnswers: ["True",
+				 "False"],
+	answer : [false, true],
+};
+var q10 = {
+	question: "In September 2014, Lego passed Hasbro to become the world’s second biggest toy maker",
+	possibleAnswers: ["True",
+				 "False"],
+	answer : [true, false],
+};
 
 
-var questionArray = [q1, q2, q3, q4, q5];
+var questionArray = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
 
 function loadQuestion(questionSelection) {
-	console.log(questionSelection);
 	countdownTimer.reset();
   $(".question").html("<h2>" + questionArray[questionSelection].question + "</h2>");
   $("#true").text(questionArray[questionSelection].possibleAnswers[0]).show();
@@ -92,10 +124,8 @@ function setup() {
 function getAnswer() {
 
 	$(".trueFalse").on("click", function() {
-	  console.log("alert", index);
-		index++;
-		console.log("click", index);
-		$(".question").text("");
+        index++
+        $(".question").text("");
 		$("#true").text("");
 		$("#false").text("");
 		loadQuestion();
@@ -116,15 +146,16 @@ function answerWrong() {
 
 function showScore() {
 	$(".question").empty();
-	$(".question").append("<h2><p>" + correct + " correct</p></h2>");
-	$(".question").append("<h2><p>" + wrong + " incorrect</p></h2>");
+	$(".question").append("<h2><p>You got " + correct + " correct</p></h2>");
+	$(".question").append("<h2><p>You got " + wrong + " incorrect</p></h2>");
 	countdownTimer.stop();
 	$(".timer").empty();
 
 }
+
+
 setup();
 $(".trueFalse").on("click", function() {
- console.log($(this));
  if(this.id == "true") {
  	var answerChosen = "true";
  } else if(this.id == "false") {
