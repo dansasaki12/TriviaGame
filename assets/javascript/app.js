@@ -147,7 +147,7 @@ function showScore() {
 	$(".question").empty();
 	$(".question").append("<h2><p>You got " + correct + " correct</p></h2>");
     $(".question").append("<h2><p>You got " + wrong + " incorrect</p></h2>");
-    $(".question").append("<button id='resetB'>Reset</button>");
+    //$(".question").append("<button id='resetB'>Reset</button>");
 	countdownTimer.stop();
 	$(".timer").empty();
 
