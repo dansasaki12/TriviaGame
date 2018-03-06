@@ -24,7 +24,7 @@ $(document).ready(function() {
 				if (index < questionArray.length) {
 					loadQuestion(index);
 				} else {
-					$(".trueFalse").hide();
+                    $(".trueFalse").hide();
                     showScore();
                     
 				}
@@ -32,7 +32,7 @@ $(document).ready(function() {
 		}
     };
 
-// counexs
+// counters
 var correct = 0;
 var wrong = 0;
 
@@ -107,19 +107,18 @@ function loadQuestion(questionSelection) {
   $(".question").html("<h2>" + questionArray[questionSelection].question + "</h2>");
   $("#true").text(questionArray[questionSelection].possibleAnswers[0]).show();
   $("#false").text(questionArray[questionSelection].possibleAnswers[1]).show();
-//  getAnswer();  
-//  nextQuestion(index);
 }
 
 function setup() {
 	index = 0;
-	$(".question").append("<button id='startButton'>Start</button>");
+    $(".question").append("<button id='startButton'>Start</button>");
 	$("#startButton").on("click", function() {
 		$(this).hide();
 		countdownTimer.start();
-	 	loadQuestion(index);
+         loadQuestion(index);
 	});
 }		
+
 
 function getAnswer() {
 
@@ -147,11 +146,13 @@ function answerWrong() {
 function showScore() {
 	$(".question").empty();
 	$(".question").append("<h2><p>You got " + correct + " correct</p></h2>");
-	$(".question").append("<h2><p>You got " + wrong + " incorrect</p></h2>");
+    $(".question").append("<h2><p>You got " + wrong + " incorrect</p></h2>");
+    $(".question").append("<button id='resetB'>Reset</button>");
 	countdownTimer.stop();
 	$(".timer").empty();
 
 }
+
 
 
 setup();
@@ -180,7 +181,7 @@ $(".trueFalse").on("click", function() {
  if (index < questionArray.length) {
  	loadQuestion(index);
  } else {
- 	$(".trueFalse").hide();
+     $(".trueFalse").hide();
  	showScore();
  }
 });
