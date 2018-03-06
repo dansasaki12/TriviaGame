@@ -26,7 +26,8 @@ $(document).ready(function() {
 					loadQuestion(index);
 				} else {
 					$(".trueFalse").hide();
-					showScore();
+                    showScore();
+                    
 				}
 			}
 		}
